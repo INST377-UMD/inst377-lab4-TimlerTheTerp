@@ -1,0 +1,33 @@
+body {
+    background-color: aqua;
+}
+
+.boxes{
+    width: 50%;
+    float: left;
+    margin: 10px;
+    margin-left: 0;
+}
+
+.first-boxes{
+    background-color: purple;
+    color: blue;
+    border: 2px solid white;
+    padding: 5px;
+
+}
+
+.Mod-Bits{
+    width: 30%;
+    float: right;
+    margin: 10px;
+    margin-right: 0;
+}
+
+.Mods{
+    background-color: purple;
+    color: blue;
+    border: 2px solid white;
+    padding: 3px;
+
+}

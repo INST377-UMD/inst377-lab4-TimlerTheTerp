@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>INST377 Lab 4</title>
+        <link rel="stylesheet" href="Lab4.css"> 
+    </head>
+    <body>
+        <h1 id = "MainTitle">Inst377 - Lab 4</h1>
+        <div class="main-bits">
+            <div class="boxes">
+                <!-- First Form (Alert User) -->
+                <div class="first-boxes">
+                    <form name="NameSubmit" onsubmit="return Alertuser(event)">
+                        <label for="Name" style="color: white;">Name:</label>
+                        <input type="text" placeholder="Calvin" id="Name" required>
+                        <button type="submit">Alert Me!</button>
+                    </form>
+                </div>
+
+                <br>
+
+                <!-- Second Form (Validate Text) -->
+                <div class="first-boxes">
+                    <form name="NameValidate" onsubmit="return Validatetext(event)">
+                        <label for="Tester" style="color: white;">Text Tester:</label>
+                        <input type="text" id="Tester" required>
+                        <button type="submit">Validate Text</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript Code -->
+        <script type="text/javascript">
+            function Alertuser(event) {
+                event.preventDefault(); // Prevent form submission & page reload
+                
+                let nameInput = document.getElementById("Name").value.trim();
+                alert("Hi " + nameInput + "!");
+            }
+
+            function Validatetext(event) {
+                event.preventDefault(); // Prevent form submission & page reload
+                
+                let inputText = document.getElementById("Tester").value.trim();
+                console.log('Validating Appropriate Name:', inputText);
+
+                let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/; 
+
+                if (inputText === "") {
+                    alert('Enter a Valid First Name, Please.');
+                    return false;
+                }
+
+                if (validation.test(inputText)) { 
+                    alert('Invalid Name.');
+                    return false;
+                }
+
+                alert("Valid Name: " + inputText);
+                return true;
+            }
+        </script>
+    </body>
+</html>
+            
+
+
+
+    <div class = "Mod-Bits">
+
+        <!-- Changing The Color -->
+        <div class = "Mods">
+            <form name="Color" onsubmit="return Colorchange()">
+            <button style="display: block; margin: 0 auto;">Change Color</button>
+            </form>
+        </div>
+        <br>
+
+        <!-- Adding Text -->
+        <div class = "Mods">
+            <button type="button" onclick="AddText()"
+             style="display: block; margin: 0 auto;">Add Text</button>
+        </div>
+    </div>
+    </div>
+
+        <!-- Javascript Code -->
+        <script type="text/javascript">
+            function Colorchange() {
+                let currentColor = document.body.style.backgroundColor || localStorage.getItem("bgrColor");
+            
+                if (currentColor === 'green') {
+                    document.body.style.backgroundColor = 'aqua'; 
+                    localStorage.setItem("bgrColor", "aqua");
+                } else {
+                    document.body.style.backgroundColor = 'green'; 
+                    localStorage.setItem("bgrColor", "green"); 
+                }
+            }
+            
+            window.onload = function () {
+                let colorset = localStorage.getItem("bgrColor");
+                if (colorset) {
+                    document.body.style.backgroundColor = colorset;
+                }
+            }
+
+            function AddText() {
+                event.preventDefault(); // Prevent form submission & page reload
+                let changetext = document.getElementById("MainTitle");
+                changetext.textContent = changetext.textContent + " " + "Add Text";
+            }
+        </script>
+    </body>
+</html>
