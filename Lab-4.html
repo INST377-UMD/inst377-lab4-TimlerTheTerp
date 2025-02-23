@@ -1,4 +1,4 @@
-html>
+<html>
     <head>
         <title>INST377 Lab 4</title>
         <link rel="stylesheet" href="Lab4.css"> 
@@ -82,26 +82,28 @@ html>
         <!-- Javascript Code -->
         <script type="text/javascript">
             function Colorchange() {
-                let currentColor = document.body.style.backgroundColor || localStorage.getItem("bgrColor");
+                let currentColor = document.body.style.backgroundColor || localStorage.getItem("colorswitch");
                 //Make a variable for the backgroud color and the localStorage is to save the color bgr when it changes
-            
+                //The condition will switch from aqua to green
                 if (currentColor === 'green') { //changes the color to aqua
                     document.body.style.backgroundColor = 'aqua'; 
-                    localStorage.setItem("bgrColor", "aqua");
+                    localStorage.setItem("colorswitch", "aqua");
                 } else {
                     document.body.style.backgroundColor = 'green';  //changes the color to green
-                    localStorage.setItem("bgrColor", "green"); 
+                    localStorage.setItem("colorswitch", "green"); 
                 }
             }
-            
-            window.onload = function () { //This function saves the website from restarting, so when you click the button this function saves the color until the user clicks the button again
-                let colorset = localStorage.getItem("bgrColor");
+            //This function saves the website from restarting, clicking the button will result in putting the new color in the background until the user clicks the button again
+            //Without windows, clicking the button will allow the user to see the new color less than a second and reverts back to the default
+            window.onload = function () { 
+                let colorset = localStorage.getItem("colorswitch");
                 if (colorset) {
                     document.body.style.backgroundColor = colorset;
                 }
             }
 
             function AddText() { //This function Adds Add Text when button is clicked
+                event.preventDefault(); //Stops Page Reload
                 let changetext = document.getElementById("MainTitle"); //variable to identify the title
                 changetext.textContent = changetext.textContent + " " + "Add Text";
             }
