@@ -1,4 +1,4 @@
-<html>
+html>
     <head>
         <title>INST377 Lab 4</title>
         <link rel="stylesheet" href="Lab4.css"> 
@@ -33,27 +33,21 @@
         <!-- Javascript Code -->
         <script type="text/javascript">
             function Alertuser(event) {
-                event.preventDefault(); // Prevent form submission & page reload
-                
+                event.preventDefault(); //Stops Page Reload
                 let nameInput = document.getElementById("Name").value.trim();
                 alert("Hi " + nameInput + "!");
             }
 
             function Validatetext(event) {
-                event.preventDefault(); // Prevent form submission & page reload
+                event.preventDefault(); //Stops Page Reload
                 
                 let inputText = document.getElementById("Tester").value.trim();
                 console.log('Validating Appropriate Name:', inputText);
 
                 let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/; 
 
-                if (inputText === "") { //Detects No Name
-                    alert('Enter a Valid First Name, Please.');
-                    return false;
-                }
-
                 if (validation.test(inputText)) {  //Detects Invalid Name
-                    alert('Invalid Name.');
+                    alert('Invalid Name, No Special Characters');
                     return false;
                 }
 
@@ -108,7 +102,6 @@
             }
 
             function AddText() { //This function Adds Add Text when button is clicked
-                event.preventDefault(); // Prevent form submission & page reload
                 let changetext = document.getElementById("MainTitle"); //variable to identify the title
                 changetext.textContent = changetext.textContent + " " + "Add Text";
             }
